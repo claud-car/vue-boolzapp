@@ -9,6 +9,63 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="root">
+    <div class="container">
+      <div class="left-container">
+        <div class="profile">
+          <div class="img-profile">
+            <img src="assets/img/avatar_8.jpg" alt="">
+            <span>Claudio Carchietti</span>
+          </div>
+          <div class="icons-profile">
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-comment-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+        <div class="alert">
+          <i class="fas fa-bell-slash"></i>
+          <p>Ricevi notifiche di nuovi messaggi <br> <span id="underline"> Attiva le notifiche desktop</span></p>
+        </div>
+        <div class="search">
+          <div class="icon-search">
+            <i class="fas fa-search"></i>
+          </div>
+          <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+        </div>
+        <div class="contacts">
+          <div v-for="(user,index) in contacts" class="user-chats">
+            <div class="box-user">
+              <img v-bind:src="'assets/img/avatar' + user.avatar + '.jpg'" alt="">
+              <p>{{user.name}} <br> <span v-if="user.messages.length > 0">{{user.messages.slice(-1)[0].text}}</span></p>
+            </div>
+            <div class="date">
+              <p v-if="user.messages.length > 0">{{user.messages.slice(-1)[0].date}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="right-container">
+        <div class="focused-contact">
+          <div class="contact">
+            <img src="./assets/img/avatar_1.jpg" alt="">
+          </div>
+          <div class="icons-contact">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+        <div class="chat-box"></div>
+        <div class="chat-text">
+          <i class="far fa-smile"></i>
+          <input type="text" name="" value="" placeholder="Scrivi un messaggio...">
+          <i class="fas fa-microphone"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 
 
@@ -18,6 +75,7 @@
  <!-- SCRIPT JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="./assets/js/dati.js" charset="utf-8"></script>
   <script src="./assets/js/main.js" charset="utf-8"></script>
 </body>
 </html>

@@ -1,0 +1,256 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+body{
+  background: linear-gradient(0deg, #D9DCD5 80%, #039789 20%);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* CONTAINERS */
+.container{
+  width: 85vw;
+  height: 95vh;
+  display: flex;
+}
+
+.left-container{
+  width: 40%;
+  height: 100%;
+  background-color: grey;
+}
+
+.right-container{
+  width: 60%;
+  height: 100%;
+}
+
+/* LEFT CONTAINER PROPERTY */
+
+/* PROFILE */
+
+.profile{
+  background-color: #EAEAEA;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-profile{
+  display: flex;
+  align-items: center;
+}
+
+.profile img{
+  width: 10%;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+.img-profile span{
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.icons-profile i{
+  padding: 5px;
+  font-size: 20px;
+  color: #B1B1B1;
+}
+
+.icons-profile i:last-child{
+  margin-right: 10px;
+}
+
+/* PROFILE */
+/* ALERT */
+
+.alert{
+  background-color: #8EDAFC;
+  height: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.alert i{
+  font-size: 35px;
+  background-color: #FFF;
+  padding: 20px;
+  border-radius: 50%;
+  color: #8EDAFC;
+  margin-left: 20px;
+}
+
+.alert p{
+  font-size: 16px;
+  margin-left: 20px;
+  margin-bottom: 2px
+}
+
+#underline{
+  text-decoration: underline;
+  color: grey;
+}
+
+/* ALERT */
+/* SEARCH */
+
+.search{
+  background-color: #F1F1F1;
+  height: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-search{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+  height: 60%;
+  border: 1px solid lightgrey;
+  background-color: #FFF;
+}
+
+.search input{
+  width: 75%;
+  height: 60%;
+  border: 1px solid lightgrey;
+  font-size: 15px;
+}
+
+.search input:focus{
+  outline: 0;
+}
+
+/* SEARCH */
+/* CONTACTS */
+
+.contacts{
+  background-color: #FFF;
+  height: 67%;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.user-chats{
+  display: flex;
+  align-items:center;
+  justify-content:flex-start;
+  width: 100%;
+  height: 20%;
+}
+
+.box-user{
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+.user-chats img{
+  width: 15%;
+  margin-left: 20px;
+  border-radius: 50%;
+}
+
+.box-user p{
+  font-weight: bold;
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+.box-user span{
+  font-weight: normal;
+}
+
+.user-chats .date{
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 20px;
+  width: 20%;
+}
+
+.date p{
+  font-size: 12px;
+  color: grey;
+}
+
+/* CONTACTS */
+/* RIGHT-CONTAINER */
+
+/* FOCUSED CONTACT */
+
+.focused-contact{
+  width: 100%;
+  background-color: #EAEAEA;
+  height: 10%;
+  border-left: 1px solid lightgrey;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.focused-contact img{
+  width: 14%;
+  border-radius: 50%;
+  margin-left: 20px;
+}
+
+.focused-contact i{
+  padding: 5px;
+  font-size: 20px;
+  color: #B1B1B1;
+}
+
+.focused-contact i:last-child{
+  margin-right: 10px;
+}
+
+/* FOCUSED CONTACT */
+/* CHAT-BOX */
+
+.chat-box{
+  background-image: url(../img/mine.jpg);
+  width: 100%;
+  height: 78%;
+  overflow-y: scroll;
+}
+
+/* CHAT-BOX*/
+/* chat-text */
+
+.chat-text{
+  background-color: #EAEAEA;
+  width: 100%;
+  height: 12%;
+  border-left: 1px solid lightgrey;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.chat-text i{
+  font-size: 25px;
+  color: #6E7176;
+}
+
+.chat-text input{
+  width: 80%;
+  height: 65%;
+  border-radius: 5px;
+  padding: 0 10px;
+}
+
+/* chat-text */
