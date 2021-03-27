@@ -34,6 +34,7 @@
           <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
         </div>
         <div class="contacts">
+          <!-- v-bind:style="{backgroundC3olor: computedgrey}" v-on:click="clickgrey" -->
           <div v-for="(user,index) in contacts" class="user-chats">
             <div class="box-user">
               <img v-bind:src="'assets/img/avatar' + user.avatar + '.jpg'" alt="">
@@ -49,6 +50,7 @@
         <div class="focused-contact">
           <div class="contact">
             <img src="./assets/img/avatar_1.jpg" alt="">
+            <p>Michele <br> <span >Ultimo accesso blabla</span></p>
           </div>
           <div class="icons-contact">
             <i class="fas fa-search"></i>
@@ -56,7 +58,16 @@
             <i class="fas fa-ellipsis-v"></i>
           </div>
         </div>
-        <div class="chat-box"></div>
+        <div class="chat-box">
+          <div class="sent">
+            <p>Ricordati di dargli da mangiare!</p>
+            <span>data blablabla</span>
+          </div>
+          <div class="received">
+            <p>Tutto fatto!</p>
+            <span>datablablabla</span>
+          </div>
+        </div>
         <div class="chat-text">
           <i class="far fa-smile"></i>
           <input type="text" name="" value="" placeholder="Scrivi un messaggio...">
@@ -76,6 +87,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   <script src="./assets/js/dati.js" charset="utf-8"></script>
-  <script src="./assets/js/main.js" charset="utf-8"></script>
 </body>
 </html>

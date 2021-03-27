@@ -35,6 +35,34 @@ body{
 
 /* LEFT CONTAINER PROPERTY */
 
+/* HOVER and text-decoration */
+
+  .profile img:hover , .profile span:hover,
+  .icons-profile i:hover,
+  .alert span:hover,
+  .icon-search:hover,
+  .user-chats:hover,
+  .contact img:hover, .contact p:hover,
+  .icons-contact i:hover,
+  .sent :hover, .received:hover,
+  .chat-text i:hover{
+    cursor: pointer;
+  }
+
+  .contact span:hover{
+    text-decoration: underline;
+  }
+
+  /* .user-chats:hover{
+    background-color: lightgrey;
+  } */
+
+  .user-chats:after{
+    background-color: lightgrey;
+  }
+
+/* HOVER and text-decoration */
+
 /* PROFILE */
 
 .profile{
@@ -62,6 +90,11 @@ body{
   margin-left: 10px;
 }
 
+.icons-profile{
+  display: flex;
+
+}
+
 .icons-profile i{
   padding: 5px;
   font-size: 20px;
@@ -84,7 +117,7 @@ body{
 }
 
 .alert i{
-  font-size: 35px;
+  font-size: 30px;
   background-color: #FFF;
   padding: 20px;
   border-radius: 50%;
@@ -151,12 +184,14 @@ body{
   justify-content:flex-start;
   width: 100%;
   height: 20%;
+  border-bottom: 1px solid lightgrey;
+  background-color: white;
 }
 
-.box-user{
+.box-user , .contact{
   display: flex;
   align-items: center;
-  width: 80%;
+  width: 60%;
 }
 
 .user-chats img{
@@ -165,13 +200,16 @@ body{
   border-radius: 50%;
 }
 
-.box-user p{
+.box-user p , .contact p{
   font-weight: bold;
   font-size: 15px;
   margin-left: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-.box-user span{
+.box-user span , .contact span{
   font-weight: normal;
 }
 
@@ -179,12 +217,13 @@ body{
   display: flex;
   justify-content: flex-end;
   margin-right: 20px;
-  width: 20%;
+  width: 40%;
 }
 
 .date p{
   font-size: 12px;
   color: grey;
+  text-align: right;
 }
 
 /* CONTACTS */
@@ -203,7 +242,7 @@ body{
 }
 
 .focused-contact img{
-  width: 14%;
+  width: 10%;
   border-radius: 50%;
   margin-left: 20px;
 }
@@ -226,7 +265,47 @@ body{
   width: 100%;
   height: 78%;
   overflow-y: scroll;
+  padding: 0 50px;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
 }
+
+/* MANDATI IO */
+.sent{
+  align-self: flex-end;
+  padding: 10px 40px  20px 10px;
+  background-color: #D5F9BA;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 15px;
+  width: 300px;
+  overflow-wrap:break-word;
+  position: relative;
+}
+
+/* MANDATI LUI */
+.received{
+  align-self: flex-start;
+  padding: 10px 40px  20px 10px;
+  background-color: #FFF;
+  border-radius: 10px;
+  text-align: left;
+  font-size: 15px;
+  width: 300px;
+  overflow-wrap:break-word;
+  position: relative;
+}
+
+.sent span , .received span{
+  position: absolute;
+  bottom: 3px;
+  right: 8px;
+  color: grey;
+  font-size: 12px;
+}
+
+
 
 /* CHAT-BOX*/
 /* chat-text */

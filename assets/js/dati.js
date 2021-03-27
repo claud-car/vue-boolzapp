@@ -1,6 +1,7 @@
 var app = new Vue ({
 	el:'#root',
 	data:{
+		colorgrey: '',
 		contacts: [
 			{
 				name: 'Michele',
@@ -8,17 +9,17 @@ var app = new Vue ({
 				visible: true,
 				messages: [
 					{
-						date: '10/01/2020 15:30:55',
+						date: dayjs().subtract(1, 'h').format('HH:mm'),
 						text: 'Hai portato a spasso il cane?',
 						status: 'sent'
 					},
 					{
-						date: '10/01/2020 15:50:00',
+						date: dayjs().subtract(59, 'm').format('HH:mm'),
 						text: 'Ricordati di dargli da mangiare',
 						status: 'sent'
 					},
 					{
-						date: '10/01/2020 16:15:22',
+						date: dayjs().subtract(2, 'm',).format('HH:mm'),
 						text: 'Tutto fatto!',
 						status: 'received'
 					}
@@ -30,17 +31,17 @@ var app = new Vue ({
 				visible: true,
 				messages: [
 					{
-						date: '20/03/2020 16:30:00',
+						date: dayjs().subtract(2, 'h',1, 'm').format('HH:mm'),
 						text: 'Ciao come stai?',
 						status: 'sent'
 					},
 					{
-						date: '20/03/2020 16:30:55',
+						date: dayjs().subtract(1, 'h',40, 'm').format('HH:mm'),
 						text: 'Bene grazie! Stasera ci vediamo?',
 						status: 'received'
 					},
 					{
-						date: '20/03/2020 16:35:00',
+						date: dayjs().subtract(30, 'm').format('HH:mm'),
 						text: 'Mi piacerebbe ma devo andare a fare la spesa.',
 						status: 'sent'
 					}
@@ -52,17 +53,17 @@ var app = new Vue ({
 				visible: true,
 				messages: [
 					{
-						date: '28/03/2020 10:10:40',
+						date: dayjs().subtract(50, 'm').format('HH:mm'),
 						text: 'La Marianna va in campagna',
 						status: 'received'
 					},
 					{
-						date: '28/03/2020 10:20:10',
+						date: dayjs().subtract(30, 'm').format('HH:mm'),
 						text: 'Sicuro di non aver sbagliato chat?',
 						status: 'sent'
 					},
 					{
-						date: '28/03/2020 16:15:22',
+						date: dayjs().subtract(27, 'm').format('HH:mm'),
 						text: 'Ah scusa!',
 						status: 'received'
 					}
@@ -74,20 +75,66 @@ var app = new Vue ({
 				visible: true,
 				messages: [
 					{
-						date: '10/01/2020 15:30:55',
+						date: dayjs().subtract(7, 'h',).format('HH:mm'),
 						text: 'Lo sai che ha aperto una nuova pizzeria?',
 						status: 'sent'
 					},
 					{
-						date: '10/01/2020 15:50:00',
+						date: dayjs().subtract(6, 'h', 50, 'm').format('HH:mm'),
 						text: 'Si, ma preferirei andare al cinema',
+						status: 'received'
+					}
+				],
+			},
+			{
+				name: 'Nicolò',
+				avatar: '_6',
+				visible: true,
+				messages: [
+					{
+						date: dayjs().subtract(4, 'h', 50, 'm').format('HH:mm'),
+						text: 'Apicetti?',
+						status: 'sent'
+					},
+					{
+						date: dayjs().subtract(3, 'h', 50, 'm').format('HH:mm'),
+						text: 'O non apicetti?',
+						status: 'received'
+					}
+				],
+			},
+			{
+				name: 'Claudio',
+				avatar: '_6',
+				visible: true,
+				messages: [
+					{
+						date: dayjs().subtract(6, 'h', 50, 'm').format('HH:mm'),
+						text: 'KEKW!',
+						status: 'sent'
+					},
+					{
+						date: dayjs().subtract(6, 'h', 30, 'm').format('HH:mm'),
+						text: 'KEKW',
 						status: 'received'
 					}
 				],
 			},
 		]
 	}, //fine data
+	computed:{
+
+	},
 	methods:{
-		
+
 	}//fine methods
 }) //fine vue
+
+
+// clickgrey: function(event) {
+// 	this.colorgrey = 'grey';
+// }
+
+// computedgrey: function(){
+// 	return this.colorgrey;
+// }
