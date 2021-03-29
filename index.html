@@ -31,13 +31,18 @@
           <div class="icon-search">
             <i class="fas fa-search"></i>
           </div>
-          <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
+          <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat" v-model="search">
         </div>
         <div class="contacts">
           <!-- v-bind:style="{backgroundC3olor: computedgrey}" v-on:click="clickgrey" -->
-          <div v-for="(user,index) in contacts" class="user-chats">
-            <div class="box-user">
-              <img v-bind:src="'assets/img/avatar' + user.avatar + '.jpg'" alt="">
+          <!-- v-if = "user.name.toLowerCase().includes(search.toLowerCase())" -->
+          <div class="user-chats"
+            v-for="(user,i) in contacts"
+            v-if = "user.name.toLowerCase().includes(search.toLowerCase())"
+            :class= "(i == index ? 'active' : '')"
+            @click = "setIuser(i)">
+            <div class="box-user" >
+              <img :src="'assets/img/avatar' + user.avatar + '.jpg'" alt="">
               <p>{{user.name}} <br> <span v-if="user.messages.length > 0">{{user.messages.slice(-1)[0].text}}</span></p>
             </div>
             <div class="date">
@@ -49,8 +54,9 @@
       <div class="right-container">
         <div class="focused-contact">
           <div class="contact">
-            <img src="./assets/img/avatar_1.jpg" alt="">
-            <p>Michele <br> <span >Ultimo accesso blabla</span></p>
+            <img :src="'assets/img/avatar' + contacts[index].avatar + '.jpg'" alt="Avatar Utente">
+            <!-- <img src="./assets/img/avatar_1.jpg" alt=""> -->
+            <p>{{contacts[index].name}} <br> <span >Ultimo accesso alle ore {{contacts[index].messages.slice(-1)[0].date}}</span></p>
           </div>
           <div class="icons-contact">
             <i class="fas fa-search"></i>
@@ -59,18 +65,24 @@
           </div>
         </div>
         <div class="chat-box">
-          <div class="sent">
-            <p>Ricordati di dargli da mangiare!</p>
-            <span>data blablabla</span>
+          <div class="chat" :class = "message.status"  v-for= "message in contacts[index].messages">
+            <p>{{ message.text }}</p>
+            <span>{{message.date}}</span>
+            <div class="dropdown">
+              <p>Visualizza info</p>
+              <p>Cancella messaggio</p>
+            </div>
           </div>
-          <div class="received">
-            <p>Tutto fatto!</p>
+          <!-- <div class="received"
+          :class = "message.status"
+          v-for= "message in contacts[index].messages">
+            <p>{{ message.text }}</p>
             <span>datablablabla</span>
-          </div>
+          </div> -->
         </div>
         <div class="chat-text">
           <i class="far fa-smile"></i>
-          <input type="text" name="" value="" placeholder="Scrivi un messaggio...">
+          <input type="text" name="" value="" placeholder="Scrivi un messaggio..." v-model="messageSent" @keyup.enter = "sendMessage">
           <i class="fas fa-microphone"></i>
         </div>
       </div>

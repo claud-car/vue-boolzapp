@@ -2,6 +2,9 @@ var app = new Vue ({
 	el:'#root',
 	data:{
 		colorgrey: '',
+		index : 0,
+		messageSent: '',
+		search: '',
 		contacts: [
 			{
 				name: 'Michele',
@@ -31,17 +34,17 @@ var app = new Vue ({
 				visible: true,
 				messages: [
 					{
-						date: dayjs().subtract(2, 'h',1, 'm').format('HH:mm'),
+						date: dayjs().subtract(2, 'h').subtract(1, 'm').format('HH:mm'),
 						text: 'Ciao come stai?',
 						status: 'sent'
 					},
 					{
-						date: dayjs().subtract(1, 'h',40, 'm').format('HH:mm'),
+						date: dayjs().subtract(1, 'h').subtract(58, 'm').format('HH:mm'),
 						text: 'Bene grazie! Stasera ci vediamo?',
 						status: 'received'
 					},
 					{
-						date: dayjs().subtract(30, 'm').format('HH:mm'),
+						date: dayjs().subtract(1, 'h').format('HH:mm'),
 						text: 'Mi piacerebbe ma devo andare a fare la spesa.',
 						status: 'sent'
 					}
@@ -80,7 +83,7 @@ var app = new Vue ({
 						status: 'sent'
 					},
 					{
-						date: dayjs().subtract(6, 'h', 50, 'm').format('HH:mm'),
+						date: dayjs().subtract(6, 'h').subtract(50, 'm').format('HH:mm'),
 						text: 'Si, ma preferirei andare al cinema',
 						status: 'received'
 					}
@@ -92,12 +95,12 @@ var app = new Vue ({
 				visible: true,
 				messages: [
 					{
-						date: dayjs().subtract(4, 'h', 50, 'm').format('HH:mm'),
+						date: dayjs().subtract(4, 'h').subtract(50, 'm').format('HH:mm'),
 						text: 'Apicetti?',
 						status: 'sent'
 					},
 					{
-						date: dayjs().subtract(3, 'h', 50, 'm').format('HH:mm'),
+						date: dayjs().subtract(3, 'h').subtract(50, 'm').format('HH:mm'),
 						text: 'O non apicetti?',
 						status: 'received'
 					}
@@ -109,12 +112,12 @@ var app = new Vue ({
 				visible: true,
 				messages: [
 					{
-						date: dayjs().subtract(6, 'h', 50, 'm').format('HH:mm'),
+						date: dayjs().subtract(6, 'h').subtract(50, 'm').format('HH:mm'),
 						text: 'KEKW!',
 						status: 'sent'
 					},
 					{
-						date: dayjs().subtract(6, 'h', 30, 'm').format('HH:mm'),
+						date: dayjs().subtract(6, 'h').subtract(30, 'm').format('HH:mm'),
 						text: 'KEKW',
 						status: 'received'
 					}
@@ -122,11 +125,41 @@ var app = new Vue ({
 			},
 		]
 	}, //fine data
-	computed:{
-
+	computed: {
+			// filteredContacts() {
+			// 		return this.contacts.filter(
+			// 				element => {
+			// 						return element.name.toLocaleLowerCase().includes(this.search.toLowerCase());
+			// 				}
+			// 		);
+			// }
 	},
 	methods:{
+		//Settare posizione user a sinistra
+		setIuser: function (position) {
+			this.index = position;
+			return this.index;
+		},
+		sendMessage: function() {
+			let sendmessage = {
+				date: dayjs().format('HH:mm'),
+				text:this.messageSent,
+				status: 'sent'
+			};
+			this.contacts[this.index].messages.push(sendmessage);
+			this.messageSent = '';
 
+			setTimeout(
+				() =>{
+					let messagereceived = {
+						date: dayjs().format('HH:mm'),
+						text: "Studia invece di scrivere su boolzapp,cretino!",
+						status: 'received'
+					}
+					this.contacts[this.index].messages.push(messagereceived);
+				},1000
+			);
+		}
 	}//fine methods
 }) //fine vue
 
