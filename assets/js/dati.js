@@ -5,6 +5,7 @@ var app = new Vue ({
 		index : 0,
 		messageSent: '',
 		search: '',
+		messageindex: null,
 		contacts: [
 			{
 				name: 'Michele',
@@ -153,12 +154,15 @@ var app = new Vue ({
 				() =>{
 					let messagereceived = {
 						date: dayjs().format('HH:mm'),
-						text: "Studia invece di scrivere su boolzapp,cretino!",
+						text: "Studia invece di scrivere su boolzapp!",
 						status: 'received'
 					}
 					this.contacts[this.index].messages.push(messagereceived);
 				},1000
 			);
+		},
+		deletemessage: function(message){
+			this.contacts[this.index].messages.splice(message,1);
 		}
 	}//fine methods
 }) //fine vue
@@ -170,4 +174,24 @@ var app = new Vue ({
 
 // computedgrey: function(){
 // 	return this.colorgrey;
+// }
+
+
+//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\//
+
+// dropdown: function (imess) {
+// 	this.contacts[this.index].messages =
+// 	this.contacts[this.index].messages.map((message,i) => {
+// 		if (imess == i) {
+// 			return {
+// 				...message,
+// 				option:true,
+// 			}
+// 		}else {
+// 				return {
+// 					...message,
+// 					option: false
+// 				}
+// 		}
+// 	})
 // }

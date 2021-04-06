@@ -48,8 +48,8 @@ body{
   .user-chats:hover,
   .contact img:hover, .contact p:hover,
   .icons-contact i:hover,
-  .sent :hover, .received:hover,
-  .chat-text i:hover{
+  .chat-text i:hover,
+  .chat i:hover{
     cursor: pointer;
   }
 
@@ -183,7 +183,7 @@ body{
 }
 
 .user-chats{
-  display: flex;
+  display: flex !important;
   align-items:center;
   justify-content:flex-start;
   width: 100%;
@@ -302,20 +302,37 @@ body{
   margin: 10px 0;
 }
 
-.chat{
+.chat i{
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
 
+.chat:hover i{
+  display: block;
 }
 
 .dropdown{
   display: none;
   position: absolute;
-  transform: translate(140px, -50px);
+  transform: translate(140px, 0);
   background-color: #FFF;
-  padding: 10px 10px;
   box-shadow: 0 0 5px 1px;
+  z-index: 1;
 }
 
-.dropdown-active{
+.dropdown p:hover{
+  cursor: pointer;
+  background-color: lightgrey;
+  border: 1px solid grey;
+}
+
+.dropdown p{
+  padding: 10px;
+}
+
+.active{
   display: block;
 }
 

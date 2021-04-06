@@ -9,7 +9,7 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="root">
+  <div id="root" @click= "messageindex = null">
     <div class="container">
       <div class="left-container">
         <div class="profile">
@@ -65,12 +65,20 @@
           </div>
         </div>
         <div class="chat-box">
-          <div class="chat" :class = "message.status"  v-for= "message in contacts[index].messages">
+          <div
+          class="chat" :class = "message.status"
+          v-for= "(message,i) in contacts[index].messages"
+          :class="message.status">
             <p>{{ message.text }}</p>
             <span>{{message.date}}</span>
-            <div class="dropdown">
+            <i class="fas fa-chevron-down"
+              @click.stop="messageindex = i"
+            ></i>
+            <div class="dropdown"
+            :class="(messageindex == i) ? 'active' : '' "
+            >
               <p>Visualizza info</p>
-              <p>Cancella messaggio</p>
+              <p @click="deletemessage(i)">Cancella messaggio</p>
             </div>
           </div>
           <!-- <div class="received"
