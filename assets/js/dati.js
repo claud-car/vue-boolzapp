@@ -154,11 +154,11 @@ var app = new Vue ({
 				() =>{
 					let messagereceived = {
 						date: dayjs().format('HH:mm'),
-						text: "Studia invece di scrivere su boolzapp!",
+						text: "Va bene,ci sentiamo più tardi.",
 						status: 'received'
 					}
 					this.contacts[this.index].messages.push(messagereceived);
-				},1000
+				},2000
 			);
 		},
 		deletemessage: function(message){
